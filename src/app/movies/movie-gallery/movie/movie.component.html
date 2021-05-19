@@ -1,0 +1,34 @@
+<!-- <ng-container *ngIf="movie$ | async as movie">
+    <div class="content-detail">
+        <img
+            class="movie-poster"
+            src="http://image.tmdb.org/t/p/w1280{{ movie.backdrop_path }}"
+            alt="image"
+        >
+        <div class="detail-text">
+            <h1>{{movie.title}}</h1>
+            <h5>{{movie.overview}}</h5>
+            <p>released: {{movie.release_date}}</p>
+            <p>rating: {{movie.vote_average}}</p>
+        </div>
+    </div>
+</ng-container> -->
+
+<!-- getting the currently loaded movie from the route if exists -->
+<ng-container *ngIf="movie$ | async as movie">
+    <div
+        class="banner"
+        [style.background-image]="movieBackdrop$ | async"
+    >
+        <div class="banner__content">
+            <h2>{{movie.title}}</h2>
+            <p>{{movie.overview}}</p>
+            <p>released: {{movie.release_date}}</p>
+            <p>rating: {{movie.vote_average}}</p>
+            <a href="#">
+                <img src="../../../../assets/images/play.png">
+
+            </a>
+        </div>
+    </div>
+</ng-container>

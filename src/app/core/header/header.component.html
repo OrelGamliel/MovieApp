@@ -1,0 +1,27 @@
+<nav class="navigation">
+    <div class="navigation__logo">
+        <h4>Movies'R'us</h4>
+    </div>
+    <ul
+        class="navigation__links"
+        [class.navigation--active]="navActive"
+    >
+        <li *ngFor="let navLink of navLinks">
+            <a
+                [routerLink]="navLink.path"
+                (click)="navActive = !navActive"
+            >
+                {{navLink.label}}
+            </a>
+        </li>
+    </ul>
+    <div
+        class="burger"
+        [class.navigation--toggle]="navActive"
+        (click)="navActive = !navActive"
+    >
+        <div class="burger__line1"></div>
+        <div class="burger__line2"></div>
+        <div class="burger__line3"></div>
+    </div>
+</nav>

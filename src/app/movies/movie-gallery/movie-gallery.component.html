@@ -1,0 +1,59 @@
+<!-- <div id="slider">
+    <figure>
+        <img
+            src="../../../assets/images/desk.png"
+            alt
+        >
+        <img
+            src="../../../assets/images/desk2.png"
+            alt
+        >
+        <img
+            src="../../../assets/images/desk3.png"
+            alt
+        >
+        <img
+            src="../../../assets/images/desk2.png"
+            alt
+        >
+        <img
+            src="../../../assets/images/desk.png"
+            alt
+        >
+    </figure>
+</div> -->
+
+<!-- the infinite-scroll module covering the movies -->
+<div
+    class="search-results content-gallery"
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="50"
+    (scrolled)="onScroll()"
+>
+    <div
+        class="content-gallery__card"
+        *ngFor="let movie of movies$ | async;let i = index"
+    >
+        <a [routerLink]="[movie.id]">
+            <img
+                class="u-center-img movie__card"
+                src="http://image.tmdb.org/t/p/w342{{ movie.poster_path }}"
+                alt="image"
+            >
+        </a>
+        <div class="content-gallery__card-text">
+            <h2 class="u-center-text">
+                <b>{{movie.original_title}}</b>
+            </h2>
+            <p class="u-center-text">{{movie.release_date | date}}</p>
+        </div>
+
+    </div>
+</div>
+<div
+    class="u-center-text"
+    [hidden]="!isScrolled"
+>
+    <div class="loading-spinner"></div>
+</div>

@@ -1,0 +1,90 @@
+// #slider {
+//     overflow: hidden;
+// }
+// #slider figure {
+//     position: relative;
+//     width: 500%;
+//     margin: 0;
+//     left: 0;
+//     animation: 20s slider infinite;
+// }
+// #slider figure img {
+//     height: 80vh;
+//     width: 20%;
+//     float: left;
+// }
+// @keyframes slider {
+//     0% {
+//         left: 0;
+//     }
+//     20% {
+//         left: 0;
+//     }
+//     25% {
+//         left: -100%;
+//     }
+//     45% {
+//         left: -100%;
+//     }
+//     50% {
+//         left: -200%;
+//     }
+//     70% {
+//         left: -200%;
+//     }
+//     75% {
+//         left: -300%;
+//     }
+//     95% {
+//         left: -300%;
+//     }
+
+//     100% {
+//         left: -400%;
+//     }
+// }
+@import "../../../styles/abstracts/variables";
+
+// fixing the twitch that makes text jump into place in reload
+.movie__card {
+  height: 513px;
+  width: 342px;
+}
+
+.content-gallery {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  &__card {
+    transition: transform 0.3s;
+    margin-top: 2rem;
+    border-radius: 5px;
+    &:hover {
+      transform: translateY(-1rem) scale(1.03);
+      box-shadow: 0 8px 16px 0 rgba($color-white, 0.2);
+    }
+  }
+  &__card-text {
+    text-overflow: ellipsis;
+    margin-top: 1rem;
+    border-radius: 5px 5px 0 0;
+    border-color: $color-white;
+  }
+}
+
+.loading-spinner {
+  width: 10rem;
+  height: 10rem;
+  display: inline-block;
+  border: 3px solid rgba($color-cool-grey, 0.3);
+  border-radius: 50%;
+  border-top-color: $color-white;
+  margin: 10rem auto 10rem;
+  animation: 1s spin infinite ease-in-out;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
